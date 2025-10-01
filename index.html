@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Jharkhand - The Land of Forests</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2e7d32;
+            --secondary: #ff9800;
+            --accent: #1565c0;
+            --light: #f5f5f5;
+            --dark: #263238;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary), #1b5e20);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+
+/* Chatbot Styles */
+.chatbox-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.chatbox {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    max-height: 450px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.chatbox-header {
+    background-color: var(--accent);
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.chatbox-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.chatbox-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+
+.chatbox-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+ 
+.chatbox-input button {
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+ 
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        
+        .hero {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('Images/b-1.jpg') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: #f57c00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Destinations Grid */
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .destination-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .destination-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .card-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        /* Culture Section */
+        .culture-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .culture-item {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .culture-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Testimonials */
+        .testimonials-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .testimonial {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-details h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        /* Contact Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #37474f;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #37474f;
+            color: #999;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .nav-menu.active {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-mountain"></i>
+                    <h1>JharkhandMitra</h1>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#culture">Culture</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#contact">Chatbox</a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+         
+        
+        <div class="container">
+            <div class="hero-content">
+                <h2>Discover the Natural Beauty of Jharkhand</h2>
+                <p>Explore the land of forests, waterfalls, and rich tribal heritage. Experience the untouched beauty and cultural diversity of India's hidden gem.</p>
+                <a href="#destinations" class="btn">Explore Destinations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Destinations</h2>
+                <p>Discover the most beautiful places to visit in Jharkhand</p>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="Images/netharat.jpg" alt="">
+                        
+                    </div>
+                    <div class="card-content">
+                        <h3>Netarhat</h3>
+                        <p>Known as the "Queen of Chotanagpur," this hill station offers breathtaking sunrise and sunset views, dense forests, and a pleasant climate.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="card-img">
+                         <img src="Images/Dassam_falls.jpg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3>Dassam Falls</h3>
+                        <p>A magnificent waterfall on the Subarnarekha River, Dassam Falls is one of the most scenic spots in Jharkhand, especially during monsoon.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <div class="card-img">
+                      <img src="Images/betla.jpg" alt=""> 
+                    </div>
+                    <div class="card-content">
+                        <h3>Betla National Park</h3>
+                        <p>Home to diverse wildlife including tigers, elephants, and leopards, this national park offers thrilling safari experiences amidst lush forests.</p>
+                        <a href="#" class="btn">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Rich Cultural Heritage</h2>
+                <p>Experience the vibrant tribal culture and traditions of Jharkhand</p>
+            </div>
+            <div class="culture-container">
+                <div class="culture-item">
+                    <div class="culture-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Traditional Music</h3>
+                    <p>Experience the enchanting sounds of tribal instruments like mandar, nagara, and flute during cultural performances.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="culture-icon">
+                        <i class="fas fa-drum"></i>
+                    </div>
+                    <h3>Festivals</h3>
+                    <p>Witness vibrant tribal festivals like Sarhul, Karma, and Sohrai that celebrate nature and harvest seasons.</p>
+                </div>
+                <div class="culture-item">
+                    <div class="culture-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Art & Craft</h3>
+                    <p>Admire the exquisite tribal art forms like Sohrai and Khovar paintings, and beautiful bamboo crafts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Jharkhand Gallery</h2>
+                <p>Glimpses of the natural beauty and cultural richness</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                  <img src="Images/b-1.jpg" alt="">
+                    <div class="gallery-overlay">
+                        <h3>Hundru Falls</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/b-2.jpg" alt="">
+                    <div class="gallery-overlay">
+                        <h3>Tribal Dance</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/b-3.jpg" alt="">
+                    <div class="gallery-overlay">
+                        <h3>Patratu Valley</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/b-4.jpg" alt="">
+                    <div class="gallery-overlay">
+                        <h3>Local Cuisine</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Visitor Experiences</h2>
+                <p>What travelers say about their Jharkhand experience</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Jharkhand's waterfalls took my breath away. The raw natural beauty and the warmth of tribal hospitality made this trip unforgettable."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                          <i class="fa-solid fa-face-smile"></i>
+                        </div>
+                        <div class="author-details">
+                            <h4>Priya Sharma</h4>
+                            <p>From Mumbai</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"The cultural festivals of Jharkhand are a hidden treasure. The vibrant dances, music, and traditional crafts showcase India's rich tribal heritage."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                        <i class="fa-solid fa-face-smile"></i>
+                        </div>
+                        <div class="author-details">
+                            <h4>Rahul Kapoor</h4>
+                            <p>From Delhi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Plan Your Visit</h2>
+                <p>Get in touch with us for more information about Jharkhand tourism</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Jharkhand Tourism Development Corporation, Dhurwa, Ranchi, Jharkhand 834004</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 63545 33783</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@jharkhandtourism.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Tell us about your travel plans"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Toggle Button -->
+<button class="chatbox-toggle" id="chatToggle">
+    <i class="fas fa-comment-alt"></i>
+</button>
+
+<!-- Chatbox UI -->
+<div class="chatbox" id="chatbox">
+    <div class="chatbox-header">
+        Virtual Assistant
+    </div>
+    <div class="chatbox-messages" id="chatMessages">
+        <div><strong>Bot:</strong> Hello! How can I help you plan your trip to Jharkhand?</div>
+    </div>
+    <div class="chatbox-input">
+        <input type="text" id="chatInput" placeholder="Type your message...">
+        <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Explore Jharkhand</h3>
+                    <p>Discover the natural beauty, rich cultural heritage, and adventurous destinations of India's hidden gem.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#culture">Culture</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Popular Destinations</h3>
+                    <ul>
+                        <li><a href="#">Netarhat</a></li>
+                        <li><a href="#">Dassam Falls</a></li>
+                        <li><a href="#">Betla National Park</a></li>
+                        <li><a href="#">Hundru Falls</a></li>
+                        <li><a href="#">Patratu Valley</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for travel updates and offers.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your email address">
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Jharkhand Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<script>
+    // Existing script remains unchanged...
+
+    // Chatbox toggle functionality
+    const chatToggle = document.getElementById("chatToggle");
+    const chatbox = document.getElementById("chatbox");
+
+    chatToggle.addEventListener("click", () => {
+        chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+    });
+
+    // Handle sending message
+    const sendBtn = document.getElementById("sendBtn");
+    const chatInput = document.getElementById("chatInput");
+    const chatMessages = document.getElementById("chatMessages");
+
+    sendBtn.addEventListener("click", sendMessage);
+    chatInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+            sendMessage();
+        }
+    });
+
+    function sendMessage() {
+        const userMessage = chatInput.value.trim();
+        if (userMessage === "") return;
+
+        // Append user message
+        const userMsgEl = document.createElement("div");
+        userMsgEl.innerHTML = `<strong>You:</strong> ${userMessage}`;
+        chatMessages.appendChild(userMsgEl);
+
+        chatInput.value = "";
+
+        // Simulate bot response
+        const botMsgEl = document.createElement("div");
+        botMsgEl.innerHTML = `<strong>Bot:</strong> Thanks for your message! We'll get back to you soon.`;
+        chatMessages.appendChild(botMsgEl);
+
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+</script>
+
+</body>
+</html>
